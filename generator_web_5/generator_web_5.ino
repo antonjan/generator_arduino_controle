@@ -6,8 +6,8 @@
 #define ESP8266_GPIO5    5  // Optocoupler input.
 #define LED_PIN          ESP8266_GPIO2
 // WiFi Definitions.
-const char ssid[] = "Giga7";
-const char pswd[] = "6409125086089";
+const char ssid[] = "Wifi";
+const char pswd[] = "Password";
 WiFiServer server( 80 );
 volatile int relayState = 0;      // Relay state.
  
