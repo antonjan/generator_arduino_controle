@@ -15,4 +15,7 @@ http://arduino.esp8266.com/stable/package_esp8266com_index.json
 # Add the following libraeries in arduino
 In the Arduino IDE, navigate to Sketch > Include Library > Add .ZIP Library.<br>
 ArduinoJson-5.13.5.zip<br>
-WiFiManager.zip
+WiFiManager.zip<br>
+install the following mqtt libraery from the libraery manager  <br>
+https://github.com/knolleary/pubsubclient<br>
+
