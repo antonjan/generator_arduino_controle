@@ -8,3 +8,5 @@ I am using MQTT and Node Red to integrate to IFTTT with web hoeks and Telegram f
 ![esp2866 board](iot_wifi_relay_module.png?raw=true "ESP8266 board")<br>
 Giga Technology (http://www.giga.co.za) is selling a ESP3266 RELAY and opto input board for controlling the Generator.
 Giga Technology (http://www.giga.co.za) also has a n servo unit to controle the chocke of an Petrol generator engin for cold start.
+here is the link to the document explaning the APmode for seting up wifi details at startup
+https://randomnerdtutorials.com/wifimanager-with-esp8266-autoconnect-custom-parameter-and-manage-your-ssid-and-password/
