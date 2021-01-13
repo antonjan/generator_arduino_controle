@@ -21,3 +21,5 @@ WiFiManager.zip<br>
 install the following mqtt libraery from the libraery manager  <br>
 https://github.com/knolleary/pubsubclient<br>
 
+ref: https://ucexperiment.wordpress.com/2016/12/18/yunshan-esp8266-250v-15a-acdc-network-wifi-relay-module/
+
