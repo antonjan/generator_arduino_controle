@@ -10,6 +10,8 @@ Giga Technology (http://www.giga.co.za) is selling a ESP3266 RELAY and opto inpu
 Giga Technology (http://www.giga.co.za) also has a n servo unit to controle the chocke of an Petrol generator engin for cold start.
 here is the link to the document explaning the APmode for seting up wifi details at startup
 https://randomnerdtutorials.com/wifimanager-with-esp8266-autoconnect-custom-parameter-and-manage-your-ssid-and-password/
+#Diagram
+![esp2866 diagram](wifi_relay_sch.jpeg?raw=true "ESP8266 board")<br>
 # adding board in arduino
 http://arduino.esp8266.com/stable/package_esp8266com_index.json
 # Add the following libraeries in arduino
