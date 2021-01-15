@@ -2,6 +2,9 @@
 Thi code is a web based arduino controler for stoping and starting an Petrol Generator.
 # Project Status
 The web based generator controle is working.
+## Version 2
+The new V2 version has telegram controle and mobile app controle interface.<br>
+I also have changed the Android Framework to Tasmota.<br>
 I am now bussy adding mqtt controle to start and stop the Generator via Telegram and Mobile app.
 I am using MQTT and Node Red to integrate to IFTTT with web hoeks and Telegram for events alering.
 # Hardware.
@@ -10,7 +13,7 @@ Giga Technology (http://www.giga.co.za) is selling a ESP3266 RELAY and opto inpu
 Giga Technology (http://www.giga.co.za) also has a n servo unit to controle the chocke of an Petrol generator engin for cold start.
 here is the link to the document explaning the APmode for seting up wifi details at startup
 https://randomnerdtutorials.com/wifimanager-with-esp8266-autoconnect-custom-parameter-and-manage-your-ssid-and-password/
-#Diagram
+# Diagram
 ![esp2866 diagram](wifi_relay_sch.jpeg?raw=true "ESP8266 board")<br>
 # adding board in arduino
 http://arduino.esp8266.com/stable/package_esp8266com_index.json
