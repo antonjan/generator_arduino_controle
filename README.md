@@ -30,6 +30,9 @@ https://github.com/knolleary/pubsubclient<br>
 # Node-Red flow
 ![Noe RED diagram](generator_node_red_flow_1.png?raw=true "Node RED Diagram")<br>
 ![Noe RED diagram](generator_node_red_flow_2.png?raw=true "Node RED Diagram")<br>
+# Tasmota custom config
+switchmode 1<br>
+setoption 114 1<br>
 
 ref: https://ucexperiment.wordpress.com/2016/12/18/yunshan-esp8266-250v-15a-acdc-network-wifi-relay-module/
 
