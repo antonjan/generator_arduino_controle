@@ -20,6 +20,9 @@ ArduinoJson-5.13.5.zip<br>
 WiFiManager.zip<br>
 install the following mqtt libraery from the libraery manager  <br>
 https://github.com/knolleary/pubsubclient<br>
+# Node-Red flow
+![Noe RED diagram](generator_node_red_flow_1.png?raw=true "Node RED Diagram")<br>
+![Noe RED diagram](generator_node_red_flow_2.png?raw=true "Node RED Diagram")<br>
 
 ref: https://ucexperiment.wordpress.com/2016/12/18/yunshan-esp8266-250v-15a-acdc-network-wifi-relay-module/
 
