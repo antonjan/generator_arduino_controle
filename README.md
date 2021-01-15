@@ -16,7 +16,7 @@ https://randomnerdtutorials.com/wifimanager-with-esp8266-autoconnect-custom-para
 # Diagram
 ![esp2866 diagram](wifi_relay_sch.jpeg?raw=true "ESP8266 board")<br>
 ## Connection Diagram
-![Connection diagram](Generator_wireing_diagram_v1.jpg ?raw=true "Connection Diagram")<br>
+![Connection diagram](Generator_wireing_diagram_v1.jpg?raw=true "Connection Diagram")<br>
 # adding board in arduino
 http://arduino.esp8266.com/stable/package_esp8266com_index.json
 # Add the following libraeries in arduino
