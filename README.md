@@ -1,8 +1,9 @@
 # generator_arduino_controle
-Thi code is a web based arduino controler for stoping and starting an Petrol Generator.
+Thi code is a web based arduino controler for stoping and starting an Petrol Generator via a mobile app or Telegram.
+This system only needs a reliable wifi witch can run from Generator battery or GSM modem that can run from Generator battery.
 # Project Status
-The web based generator controle is working.
-## Version 2
+The web based generator controle is working and compleet but I add functionality as required.
+## The Version 2 of the system
 The new V2 version has remote telegram controle and mobile app controle interface.<br>
 I also have changed the Android Framework to Tasmota.<br>
 This system is using MQTT and Node-Red to controle the start and stop of the Generator via Telegram and Mobile app.
