@@ -1,6 +1,7 @@
 #include <ESP8266WiFi.h>
 #include <WiFiManager.h> // Install this library
 #include <PubSubClient.h> // Install this library
+#include <ESP8266WebServer.h> // Install this library
 
 // MQTT settings
 const char* mqtt_server = "iot.giga.co.za"; // Replace with your MQTT server address
@@ -11,10 +12,14 @@ const char* mqtt_topic = "generator/tx/0002/cmnd/POWER";     // Replace with you
 
 WiFiClient espClient;
 PubSubClient client(espClient);
+ESP8266WebServer server(80); // Web server on port 80
 
 // Pin definitions
 const int relayPin = 4; // GPIO 4 (Relay)
 const int genInputPin = 5; // GPIO 5 (Input for generator)
+
+// State tracking
+bool relayState = LOW;     // Current state of the relay
 
 // State tracking for GPIO 5
 bool lastGenState = 1;
@@ -40,6 +45,12 @@ void setup() {
   client.setServer(mqtt_server, mqtt_port);
   client.setCallback(mqttCallback);
   connectToMQTT();
+
+  // Setup Web Server
+  setupWebServer();
+
+  Serial.println("Web server started.");
+
 }
 
 void loop() {
@@ -47,6 +58,7 @@ void loop() {
   if (!client.connected()) {
     connectToMQTT();
   }
+  server.handleClient();  // Handles web server requests
   client.loop();
 
   // Monitor GPIO 5 state and send MQTT message if it changes
@@ -79,6 +91,39 @@ void connectToMQTT() {
       delay(5000);
     }
   }
+}
+
+// Setup the web server routes
+void setupWebServer() {
+  server.on("/", []() {
+    String html = "<html><head><title>Relay Control</title></head><body>";
+    html += "<h1>ESP8266 Relay Control</h1>";
+    html += "<p>Relay State: <span style='color:";
+    html += (relayState == HIGH) ? "green'>ON</span>" : "red'>OFF</span>";
+    html += "</p>";
+    html += "<button onclick=\"location.href='/on'\">Turn ON</button>";
+    html += "<button onclick=\"location.href='/off'\">Turn OFF</button>";
+    html += "</body></html>";
+    server.send(200, "text/html", html);
+  });
+
+  server.on("/on", []() {
+    relayState = HIGH;
+    digitalWrite(relayPin, HIGH);
+    server.sendHeader("Location", "/"); // Redirect back to the main page
+    server.send(303);
+    Serial.println("Relay turned ON via Web");
+  });
+
+  server.on("/off", []() {
+    relayState = LOW;
+    digitalWrite(relayPin, LOW);
+    server.sendHeader("Location", "/"); // Redirect back to the main page
+    server.send(303);
+    Serial.println("Relay turned OFF via Web");
+  });
+
+  server.begin();
 }
 
 // Handle incoming MQTT messages
