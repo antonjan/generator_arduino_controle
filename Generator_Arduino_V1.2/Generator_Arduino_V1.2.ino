@@ -9,7 +9,8 @@ const int mqtt_port = 1883;
 const char* mqtt_user = "homeassistant"; // Replace with your MQTT username
 const char* mqtt_password = "h0m3@ss1$tant"; // Replace with your MQTT password
 const char* mqtt_topic = "generator/tx/0002/cmnd/POWER"; // Replace with your MQTT topic
-const char* mqtt_topic2 = "generator/tx/0002/SWITCH";
+const char* mqtt_topic2 = "generator/tx/0002/SWITCH"; 
+const char* mqtt_topic3 = "generator/tx/0002/RESULT";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -226,5 +227,20 @@ void mqttCallback(char* topic, byte* payload, unsigned int length) {
   } else if (message == "OFF") {
     digitalWrite(relayPin, LOW);
     relayState = LOW;
+  } else if (message == "IP") {
+    
+    sendIPAddress();
+    Serial.println(WiFi.localIP());
+  }
+}
+
+void sendIPAddress() {
+  if (WiFi.status() == WL_CONNECTED) {
+    IPAddress ip = WiFi.localIP();
+    char ipStr[32]; // Buffer to hold the formatted IP string
+    snprintf(ipStr, sizeof(ipStr), "IP:%d.%d.%d.%d", ip[0], ip[1], ip[2], ip[3]); // Format as IP:192.168.0.123
+    client.publish(mqtt_topic3, ipStr); // Publish the formatted IP to the topic "device/ip"
+    Serial.print("Published IP Address: ");
+    Serial.println(ipStr);
   }
 }
